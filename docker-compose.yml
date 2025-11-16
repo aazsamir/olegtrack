@@ -13,4 +13,6 @@ services:
       - 8544:80
     environment:
       INSTAGRAPI_HOST: instagrapi:8000
+    volumes:
+      - ./var:/app/var
     restart: always
