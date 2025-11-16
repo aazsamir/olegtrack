@@ -1,1 +1,1 @@
-20 11 * * * php /app/tempest scrap
+20 5 * * * php /app/tempest scrap
