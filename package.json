@@ -1,0 +1,22 @@
+{
+  "name": "olegtrack",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <a href=\"https://tempestphp.com\">     <img src=\"https://raw.githubusercontent.com/tempestphp/.github/refs/heads/main/.github/tempest-logo.svg\" width=\"100\" />   </a> </p>",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "publish-assets": "cpx \"node_modules/bootstrap/dist/**/*\" public/vendor/bootstrap && cpx \"node_modules/bootstrap-icons/font/**/*\" public/vendor/bootstrap-icons/font && cpx \"node_modules/bootstrap-icons/icons/**/*\" public/vendor/bootstrap-icons/icons"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0"
+  }
+}

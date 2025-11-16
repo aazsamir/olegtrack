@@ -1,0 +1,14 @@
+services:
+  instagrapi:
+    build:
+      context: instagrapi-rest
+    stdin_open: true
+    tty: true
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--loop", "asyncio"]
+
+  olegtrack:
+    build: .
+    ports:
+      - 8544:80
+    environment:
+      INSTAGRAPI_HOST: instagrapi:8000
