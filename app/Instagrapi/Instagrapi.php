@@ -33,7 +33,7 @@ class Instagrapi
 
                 return $this->client->followers($sessionId, $userId);
             },
-            Duration::day(),
+            Duration::hour(),
         );
     }
 
