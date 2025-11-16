@@ -12,7 +12,7 @@ class AvatarProxy
 
     public function get(string $url): string
     {
-        // 1. Transform URL to filename 
+        // 1. Transform URL to filename
         $filename = md5($url) . '.jpg';
 
         // 2. Check if file exists in cache

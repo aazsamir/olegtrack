@@ -1,20 +1,19 @@
+# Welcome to Mago!
+# For full documentation, see https://mago.carthage.software/tools/overview
 php-version = "8.4.0"
 
 [source]
-paths = ["app", "tests"]
+paths = ["app/", "tests/"]
 includes = ["vendor"]
-excludes = [
-  "./vendor/symfony/cache/Traits/ValueWrapper.php",
-  "./vendor/composer",
-]
+excludes = []
 
 [formatter]
 print-width = 180
 tab-width = 4
 use-tabs = false
+space-after-logical-not-unary-prefix-operator = false
 null-type-hint = "question"
 space-before-arrow-function-parameter-list-parenthesis = true
-space-after-logical-not-unary-prefix-operator = true
 always-break-named-arguments-list = false
 preserve-breaking-member-access-chain = true
 preserve-breaking-argument-list = true
@@ -22,3 +21,37 @@ preserve-breaking-array-like = true
 preserve-breaking-parameter-list = true
 preserve-breaking-attribute-list = true
 preserve-breaking-conditional-expression = true
+empty-line-after-opening-tag = false
+
+[linter]
+integrations = ["symfony", "phpunit", "tempest"]
+
+[linter.rules]
+ambiguous-function-call = { enabled = false }
+literal-named-argument = { enabled = false }
+too-many-properties = { enabled = false }
+kan-defect = { enabled = false }
+cyclomatic-complexity = { enabled = false }
+excessive-parameter-list = { enabled = false }
+too-many-methods = { enabled = false }
+trait-name = { enabled = false }
+halstead = { enabled = false }
+class-name = { enabled = false }
+no-else-clause = { enabled = false }
+tagged-todo = { enabled = false }
+no-shorthand-ternary = { enabled = false }
+interface-name = { enabled = false }
+no-empty = { enabled = false }
+explicit-octal = { enabled = false }
+no-boolean-flag-parameter = { enabled = false }
+assertion-style = { enabled = false }
+no-literal-password = { enabled = false }
+assert-description = { enabled = false }
+
+[analyzer]
+find-unused-definitions = true
+find-unused-expressions = false
+analyze-dead-code = false
+check-throws = true
+allow-possibly-undefined-array-keys = true
+perform-heuristic-checks = true

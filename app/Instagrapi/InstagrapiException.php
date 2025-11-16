@@ -10,7 +10,7 @@ class InstagrapiException extends \Exception
 {
     public function __construct(
         array $error,
-        Throwable|null $previous = null
+        ?Throwable $previous = null,
     ) {
         $message = \json_encode($error);
 

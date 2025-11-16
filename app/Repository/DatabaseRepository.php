@@ -211,7 +211,7 @@ class DatabaseRepository
         $query = new Query($query);
 
         $results = $this->db->fetch($query);
-        
+
         return \array_map(
             fn (array $row) => $row['follows'],
             $results,
@@ -223,7 +223,7 @@ class DatabaseRepository
         query('tracked_users')
             ->insert([
                 'username' => $username,
-                'created_at' => (new \DateTimeImmutable())->format('Y-m-d H:i:s'),
+                'created_at' => new \DateTimeImmutable()->format('Y-m-d H:i:s'),
             ])
             ->execute();
     }

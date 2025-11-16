@@ -73,7 +73,7 @@ class ScrapService
     public function saveFollowers(string $username, array $followers): void
     {
         $followers = \array_map(
-            fn(UserShort $userShort) => Follower::fromInstagrapi($username, $userShort),
+            fn (UserShort $userShort) => Follower::fromInstagrapi($username, $userShort),
             $followers,
         );
 
