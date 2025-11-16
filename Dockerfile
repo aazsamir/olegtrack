@@ -1,3 +1,13 @@
+FROM node:20 AS assets
+
+WORKDIR /app
+
+# Copy only files needed for npm install first (better caching)
+RUN mkdir /app/public
+COPY package.json package-lock.json ./
+RUN npm ci
+RUN npm run publish-assets
+
 FROM dunglas/frankenphp
 
 RUN apt-get update && apt-get -y install git unzip
@@ -14,6 +24,8 @@ COPY composer.lock /app/composer.lock
 ENV COMPOSER_HOME=/.composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN --mount=type=cache,target=/.composer/cache composer install --no-dev --optimize-autoloader
+
+COPY --from=assets /app/public/vendor /app/public/vendor
 
 COPY app /app/app
 COPY public /app/public
