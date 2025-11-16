@@ -17,8 +17,12 @@ class ScrapCommand
         name: 'scrap',
         description: 'Scrap data from sources',
     )]
-    public function __invoke(): void
+    public function __invoke(?string $username = null): void
     {
-        $this->scrapService->scrapAll();
+        if ($username) {
+            $this->scrapService->scrap($username);
+        } else {
+            $this->scrapService->scrapAll();
+        }
     }
 }
