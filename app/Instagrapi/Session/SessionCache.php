@@ -15,7 +15,7 @@ class SessionCache
         private Cache $cache,
     ) {}
 
-    public function get(string $username, string $password): ?string
+    public function get(string $username, #[\SensitiveParameter] string $password): ?string
     {
         if (isset($this->memoryCache[$username])) {
             return $this->memoryCache[$username];
@@ -29,7 +29,7 @@ class SessionCache
         return $sessionId;
     }
 
-    public function set(string $username, string $password, string $sessionId): void
+    public function set(string $username, #[\SensitiveParameter] string $password, string $sessionId): void
     {
         $this->memoryCache[$username] = $sessionId;
 
@@ -42,7 +42,7 @@ class SessionCache
         );
     }
 
-    private function cacheKey(string $username, string $password): string
+    private function cacheKey(string $username, #[\SensitiveParameter] string $password): string
     {
         return md5($username . '|' . $password);
     }

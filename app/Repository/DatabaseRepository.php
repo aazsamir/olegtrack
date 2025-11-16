@@ -135,7 +135,7 @@ class DatabaseRepository
 
         $results = $this->db->fetch($query);
         $results = \array_map(
-            fn (array $row) => new Follower(
+            static fn (array $row) => new Follower(
                 follower: $row['follower'],
                 follows: $username,
             ),
@@ -173,7 +173,7 @@ class DatabaseRepository
         $results = $this->db->fetch($query);
 
         return \array_map(
-            fn (array $row) => new Follower(
+            static fn (array $row) => new Follower(
                 follower: $row['follower'],
                 follows: $row['follows'],
             ),
@@ -213,7 +213,7 @@ class DatabaseRepository
         $results = $this->db->fetch($query);
 
         return \array_map(
-            fn (array $row) => $row['follows'],
+            static fn (array $row) => $row['follows'],
             $results,
         );
     }
@@ -239,7 +239,7 @@ class DatabaseRepository
         $results = $this->db->fetch($query);
 
         return \array_map(
-            fn (array $row) => $row['username'],
+            static fn (array $row) => $row['username'],
             $results,
         );
     }

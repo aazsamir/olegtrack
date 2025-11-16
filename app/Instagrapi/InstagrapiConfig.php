@@ -9,6 +9,7 @@ readonly class InstagrapiConfig
     public function __construct(
         public string $host,
         public string $username,
+        #[\SensitiveParameter]
         public string $password,
     ) {}
 }

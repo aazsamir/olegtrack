@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Repository\DatabaseRepository;
 use App\Service\AnalyseService;
 use Tempest\Console\ConsoleCommand;
 use Tempest\Console\HasConsole;

@@ -24,10 +24,12 @@ class AnalyseService
             $found = false;
 
             foreach ($latestFollowers as $latestFollower) {
-                if ($follower->follower === $latestFollower->follower) {
-                    $found = true;
-                    break;
+                if ($follower->follower !== $latestFollower->follower) {
+                    continue;
                 }
+
+                $found = true;
+                break;
             }
 
             if (!$found) {

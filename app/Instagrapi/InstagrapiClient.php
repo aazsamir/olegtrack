@@ -15,7 +15,7 @@ class InstagrapiClient
         private Client $http,
     ) {}
 
-    public function login(string $username, string $password): string
+    public function login(string $username, #[\SensitiveParameter] string $password): string
     {
         /** @var string */
         $response = $this->sendRequest('/auth/login', [
