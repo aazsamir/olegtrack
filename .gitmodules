@@ -1,0 +1,3 @@
+[submodule "instagrapi-rest"]
+	path = instagrapi-rest
+	url = https://github.com/subzeroid/instagrapi-rest.git
